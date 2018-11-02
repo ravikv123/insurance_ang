@@ -24,6 +24,8 @@ import { ShowPolicyDetailsComponent } from './show-policy-details/show-policy-de
 import { FilterPipe } from './filter.pipe';
 import { ShowPolicyDetails1Component } from './show-policy-details1/show-policy-details1.component';
 import { PolicyDetails1Component } from './policy-details1/policy-details1.component';
+import { LifeCycleComponent } from './life-cycle/life-cycle.component';
+import { LifeCycleChildComponent } from './life-cycle-child/life-cycle-child.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { PolicyDetails1Component } from './policy-details1/policy-details1.compo
     ShowPolicyDetailsComponent,
     FilterPipe,
     ShowPolicyDetails1Component,
-    PolicyDetails1Component
+    PolicyDetails1Component,
+    LifeCycleComponent,
+    LifeCycleChildComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +57,6 @@ import { PolicyDetails1Component } from './policy-details1/policy-details1.compo
   ],
   providers: [HttpClient],
   entryComponents: [ShowLocationComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [LifeCycleComponent]
 })
 export class AppModule { }
