@@ -22,6 +22,8 @@ import { AddElementDirective } from './add-element.directive';
 import { ShowLocationComponent } from './show-location/show-location.component';
 import { ShowPolicyDetailsComponent } from './show-policy-details/show-policy-details.component';
 import { FilterPipe } from './filter.pipe';
+import { ShowPolicyDetails1Component } from './show-policy-details1/show-policy-details1.component';
+import { PolicyDetails1Component } from './policy-details1/policy-details1.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { FilterPipe } from './filter.pipe';
     AddElementDirective,
     ShowLocationComponent,
     ShowPolicyDetailsComponent,
-    FilterPipe
+    FilterPipe,
+    ShowPolicyDetails1Component,
+    PolicyDetails1Component
   ],
   imports: [
     BrowserModule,

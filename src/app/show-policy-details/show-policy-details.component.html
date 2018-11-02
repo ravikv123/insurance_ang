@@ -33,7 +33,7 @@
         <th>Policy Amount</th>
         <th>Maturity Date</th>
     </tr>
-    <tr *ngFor="let eachPolicy of policyList | paginate:{itemsPerPage:6,currentPage:page}">
+    <tr *ngFor="let eachPolicy of policyList | filter:'policyHolderName':srchName | paginate:{itemsPerPage:6,currentPage:page}">
         <td>{{eachPolicy.id}}</td>
         <td>{{eachPolicy.policyHolderName |uppercase}}</td>
         <td>{{eachPolicy.policyAmount | currency :'INR':'symbol'}}</td>
