@@ -1,0 +1,79 @@
+{
+  "lifeInsurance": [
+    {
+      "id": 101,
+      "policyHolderName": "Ravi1",
+      "policyAmount": "1501",
+      "matureDate": "2020-10-12"
+    },
+    {
+      "id": 102,
+      "policyHolderName": "Ravi2",
+      "policyAmount": 25000,
+      "matureDate": "2020-09-12"
+    },
+    {
+      "id": 103,
+      "policyHolderName": "Ravi3",
+      "policyAmount": 35000,
+      "matureDate": "2020-08-12"
+    },
+    {
+      "id": 105,
+      "policyHolderName": "Ravi4",
+      "policyAmount": 45000,
+      "matureDate": "2020-07-12"
+    },
+    {
+      "id": 106,
+      "policyHolderName": "Ravi5",
+      "policyAmount": 55000,
+      "matureDate": "2020-06-12"
+    },
+    {
+      "id": 107,
+      "policyHolderName": "Ravi6",
+      "policyAmount": 65000,
+      "matureDate": "2020-05-12"
+    },
+    {
+      "id": 108,
+      "policyHolderName": "Ravi7",
+      "policyAmount": 75000,
+      "matureDate": "2020-04-12"
+    },
+    {
+      "id": "109",
+      "policyHolderName": "ravi9",
+      "policyAmount": "100100",
+      "matureDate": "2019-01-17"
+    }
+  ],
+  "advisors": [
+    {
+      "id": 201,
+      "name": "ravi1",
+      "mobileNum": 12341
+    },
+    {
+      "id": 202,
+      "name": "ravi2",
+      "mobileNum": 12342
+    },
+    {
+      "id": 203,
+      "name": "ravi3",
+      "mobileNum": 12343
+    },
+    {
+      "id": 204,
+      "name": "ravi4",
+      "mobileNum": 12344
+    },
+    {
+      "id": 205,
+      "name": "ravi5",
+      "mobileNum": 12345
+    }
+  ]
+}

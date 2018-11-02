@@ -1,0 +1,30 @@
+
+<div class='card-deck'>
+  <div *ngFor="let eachPolicy of policyInfo">
+<div class='card-header'>{{eachPolicy.policyName}}</div>
+<div class='card-body'>{{eachPolicy.desc}}</div>
+<div class='card-body'>{{eachPolicy.amount}}</div>
+</div>
+</div>
+
+
+
+<br/>
+<div>
+<h2>What out Cust Says</h2>
+<p>{{feedback1}}</p>
+<p>{{feedback2}}</p>
+<app-testimony></app-testimony>
+
+</div>
+
+<li *ngIf='showLogin' ><a href='' appHighlight>Login</a></li>
+<li *ngIf='showLogout' ><a href='' appHighlight>Logout</a></li>
+
+
+<app-login></app-login>
+<app-logout></app-logout>
+
+<br/><br/>
+<app-footer></app-footer>
+<app-footer></app-footer>

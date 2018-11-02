@@ -1,0 +1,14 @@
+<div class='col-md-4'>
+
+<label>Enter Age</label>
+
+<!-- two way binfding, event binding-->
+<input type="text" [(ngModel)]='age'  (blur)='changeStatus()' />
+
+<!--property bindign nonstring value and event binding-->
+<input type='button' [disabled]='isDisabled' value="get Quote"  (click)='showPolicy()'/>
+
+<!--interpolation binding-->
+<p>{{age}}</p>
+<p>{{suggestedPolicy}}</p>
+</div>
