@@ -1,3 +1,3 @@
 export interface InsuranceAdvisor {
-id:number;name:string;mobileNum:number;
+  id: number; name: string; mobileNumber: number;
 }

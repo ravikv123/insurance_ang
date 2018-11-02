@@ -1,5 +1,6 @@
+import { ComponentCommunicationService } from './../component-communication.service';
 import { Component, OnInit } from '@angular/core';
-import { LoginCommunicationService } from '../login-communication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-logout',
@@ -8,14 +9,17 @@ import { LoginCommunicationService } from '../login-communication.service';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor(private service:LoginCommunicationService) { }
+  constructor(private service:ComponentCommunicationService, private router:Router) { }
 
   ngOnInit() {
+    this.signout();
+    
   }
 
-  signout()
-  {
-    this.service.changeMessage('loggedout');
-  }
+  signout() {
 
+     this.service.changeMessage('logout');
+     sessionStorage.removeItem('logged');
+     this.router.navigate(['login']);
+  }
 }

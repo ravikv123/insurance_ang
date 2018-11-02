@@ -5,23 +5,15 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(collection :any[], field:string, value:string,): any[] {
-    if(!collection)
-    {
+  transform(collection: any[], field: string, value: string): any[] {
+
+    if (!collection) {
       return [];
     }
-    if(!field || !value)
-    {
+    if (!field || !value) {
       return collection;
     }
-    
-    return collection.filter(item=>item[field].toLowerCase().includes(value.toLowerCase()));
-   /* return collection.filter(item=>
-      {
-       // console.log(item);
-        item[field].toLowerCase().includes(value.toLowerCase())
-      });*/
-        
+    return collection.filter(item => (item[field]).toLowerCase().includes(value.toLowerCase()));
   }
 
 }

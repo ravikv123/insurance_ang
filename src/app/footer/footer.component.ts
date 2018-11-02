@@ -1,27 +1,22 @@
+import { InfoService } from './../info.service';
+import { PageLink } from './../page-link';
 import { Component, OnInit } from '@angular/core';
-import { PageLink } from '../page-link';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.css'],
+  providers: [InfoService]
 })
 export class FooterComponent implements OnInit {
 
-  footerHeading:string;
-  links:PageLink[];
-  
-
-  constructor() { 
-
-    this.footerHeading=`
-                    Follow us on :
-    `;
-    this.links=[{linkText:'Twitter',linkStyle:'fa fa-2x fa-twitter'},
-    {linkText:'Facebook',linkStyle:'fa fa-2x fa-facebook'},
-    {linkText:'insta',linkStyle:'fa fa-2x fa-instagram'}
+  links: PageLink[] = [
+    {linkText: 'Twitter',  linkStyle: 'fa fa-1x fa-twitter'},
+   {linkText: 'FaceBook' , linkStyle: 'fa fa-1x fa-facebook'},
+   {linkText: 'Instagram', linkStyle: 'fa fa-1x fa-instagram'}
   ];
-  }
+
+  constructor() { }
 
   ngOnInit() {
   }

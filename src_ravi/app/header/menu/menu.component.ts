@@ -1,6 +1,6 @@
 import { ComponentCommunicationService } from './../../component-communication.service';
 import {Component, OnInit, Input }from '@angular/core'; 
-import {PageLink }from 'src/app/footer/pagelink'; 
+import {PageLink }from 'src/app/page-link'; 
 
 @Component( {
 selector:'app-menu', 

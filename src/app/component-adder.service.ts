@@ -6,28 +6,37 @@ import { Injectable, ComponentFactoryResolver, ViewContainerRef } from '@angular
 export class ComponentAdderService {
 
   viewRef: ViewContainerRef;
-  constructor(private resolver:ComponentFactoryResolver) { }
+  constructor(private resolver: ComponentFactoryResolver) { }
 
-  //where to Add
-  setViewRef(viewRef)
-  {
-    this.viewRef=viewRef;
+  // Where to Add
+  setViewRef(viewRef) {
+    this.viewRef = viewRef;
   }
 
-  //what to add
-addComponent(compToAdd:any): any{
-  //entre comp will  have a factory created and register in resolver
-  const factory = this.resolver.resolveComponentFactory(compToAdd);
+  // What to Add
 
-  //access the viewref's injector to inject the comp
-  const compRef = factory.create(this.viewRef.parentInjector);//parentInjector);
+  addComponent(compToAdd: any): any {
 
-  //insert the hostview of the comp
-  this.viewRef.insert(compRef.hostView);
-  return compRef;
-}
-removeComponent(){
-  this.viewRef.detach();
-}
+    // Entry components will have a factory created and registred in resolver
+    const factory = this.resolver.resolveComponentFactory(compToAdd);
 
+    // Access the viewRef's Injector to inject the component
+      const compRef = factory.create(this.viewRef.parentInjector);
+
+      console.log(this.viewRef.parentInjector);
+
+      // insert the hostview of the component
+
+       this.viewRef.insert(compRef.hostView);
+
+        // console.log(compRef);
+        // console.log(compRef.hostView);
+
+        return compRef;
+  }
+
+  remove() {
+
+     this.viewRef.detach();
+  }
 }

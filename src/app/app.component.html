@@ -1,31 +1,11 @@
-
-
 <div>
-  <div><app-header></app-header></div>
-  <br/><br/>
-ROUTING-------
-  <router-outlet></router-outlet>
-  ROUTING-------
-  <br/>
-
-  <div>
-    <app-content></app-content>
-    <br/>
-    <app-show-advisors></app-show-advisors>
-  
-  </div>
-  <br/><br/>
-  <div><app-footer></app-footer></div>
+    <div style='height: 150px;' class='pageBg'>
+        <app-header></app-header>
+    </div>
+    <div style='height: 600px;' class='bodyBg'>
+        <router-outlet> </router-outlet>
+    </div>
+    <div style='height: 150px;' class='pageBg'>
+        <app-footer></app-footer>
+    </div>
 </div>
-<br/>
-
-<app-show-quote-binding></app-show-quote-binding>
-
-<br/><br/>
-<app-search-branch></app-search-branch>
-
-
-<button  appAddElement [elementToAdd]="'h4'" [elementText]="'test'">Add</button>
-<article></article>
-<br/><br/>
-<app-show-policy-details></app-show-policy-details>

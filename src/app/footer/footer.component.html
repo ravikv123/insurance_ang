@@ -1,6 +1,9 @@
-
-  <div>{{footerHeading}}</div>
-  
-  <ul>
-  <li *ngFor = "let linkItm of links">{{linkItm.linkText}}
-  </li></ul>
+<footer>
+    <p>Follow us :</p>
+    <ul>
+        <li *ngFor='let eachLink of links'>
+            <a href={{eachLink.linkText}} class={{eachLink.linkStyle}}>
+                      {{eachLink.linkText}}</a>
+        </li>
+    </ul>
+</footer>

@@ -1,33 +1,37 @@
+import { PageLink } from './../page-link';
 import { Component, OnInit } from '@angular/core';
-import { Pagelink } from '../footer/pagelink';
+import { myLogger } from '../custom-decorator';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+@myLogger()
 export class HeaderComponent implements OnInit {
 
-  majHeader: string;
+  majHeading: string;
   logo: string;
-  linkText: string = "Login";
-  links: Pagelink[];
+
+  links:PageLink[];
+
   constructor() {
-    this.majHeader = "Insurance Company";
-    this.logo = "assets/images/logo.JPG";
-    this.links=[
-      {linkText:'Home',linkRef:'home',linkStyle:'nav-link'},
-      {linkText:'Products',linkRef:'products',linkStyle:'nav-link'},
-      {linkText:'History',linkRef:'history',linkStyle:'nav-link'},
-      {linkText:'Advisors',linkRef:'advisors',linkStyle:'nav-link'},
-      {linkText:'get Quote',linkRef:'quote',linkStyle:'nav-link'},
-      {linkText:'Branchs',linkRef:'branches',linkStyle:'nav-link'}
-    ];
-    
-  }
+
+    this.links = [
+      {linkText: 'Products', linkRef: 'products', linkStyle: 'nav-link'},
+      {linkText: 'History', linkRef: 'history', linkStyle: 'nav-link'},
+      {linkText: 'Advisors', linkRef: 'advisors', linkStyle: 'nav-link'},
+      {linkText: 'Get Quote', linkRef: 'quote', linkStyle: 'nav-link'},
+      {linkText: 'Branches', linkRef: 'branches', linkStyle: 'nav-link'}
+     ];
+
+
+
+    this.majHeading = 'MinBapa Insurance';
+    this.logo = 'assets/images/logo.jpg';
+   }
 
   ngOnInit() {
   }
 
 }
-

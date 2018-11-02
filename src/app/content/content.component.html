@@ -1,30 +1,37 @@
-
+<h3>Our Popular Policies</h3>
 <div class='card-deck'>
-  <div *ngFor="let eachPolicy of policyInfo">
-<div class='card-header'>{{eachPolicy.policyName}}</div>
-<div class='card-body'>{{eachPolicy.desc}}</div>
-<div class='card-body'>{{eachPolicy.amount}}</div>
+    <div *ngFor='let eachPolicy of popularPolicyList' class='card'>
+        <div class='card-header' style='text-align: center'>{{eachPolicy.policyName}}</div>
+        <div class='card-body'>{{eachPolicy.description}}</div>
+    </div>
 </div>
-</div>
-
-
-
-<br/>
 <div>
-<h2>What out Cust Says</h2>
-<p>{{feedback1}}</p>
-<p>{{feedback2}}</p>
-<app-testimony></app-testimony>
+    <app-testimony></app-testimony>
+    <h2>What our Customers Say !</h2>
+
+
+    <p>{{feedback2}}</p>
+    <div *ngIf='show' class='col-md-4'>
+        <div class='card'>
+            <p class='card-img-top' style='text-align: center'><img src='assets/images/customer.jpg' style='width: 5opx;height: 50px;;'></p>
+            <p class='card-header'>{{feedback1.name}}</p>
+            <p class='card-header'>{{feedback1.designation}}</p>
+            <p class='card-body'> {{feedback1.comment}}
+            </p>
+
+        </div>
+
+    </div>
+
+
 
 </div>
 
-<li *ngIf='showLogin' ><a href='' appHighlight>Login</a></li>
-<li *ngIf='showLogout' ><a href='' appHighlight>Logout</a></li>
 
+<!-- <app-footer></app-footer> -->
 
-<app-login></app-login>
-<app-logout></app-logout>
+<!-- <section #section1></section>
+<section #section2></section>
+<section #section3></section> -->
 
-<br/><br/>
-<app-footer></app-footer>
-<app-footer></app-footer>
+<!-- <p appHighLight>Info</p> -->

@@ -1,5 +1,6 @@
+import { PolicyDetail } from './../policy-detail';
+import { InsuranceAPIService } from './../insurance-api.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { InsuranceAPIService } from '../insurance-api.service';
 import { PolicyDetailsFilter } from '../policy-details-filter';
 
 @Component({
@@ -9,78 +10,83 @@ import { PolicyDetailsFilter } from '../policy-details-filter';
 })
 export class ShowPolicyDetailsComponent implements OnInit {
 
-  @ViewChild('f') form:any;
-  constructor(private serive:InsuranceAPIService) { }
-  srchName='';
-  polictyList:PolicyDetailsFilter[];
-  idxPos:number;
-  toggleForm=false;
-  showUp=true;
-  showDown=false;
+  toggleForm = false;
+  showUp = true;
+  showDown = false;
+  srchName = '';
+  policyData: PolicyDetailsFilter = {
+    id: 0,
+    policyHolderName: '',
+    matureDate: new Date(),
+    policyAmount: 0
 
-  policyData:PolicyDetailsFilter = {
-    id:0, policyHolderName:'', policyAmount:0, matureDate:new Date()
-  }
-   buttonText='Add';
+  };
+  buttonText = 'Add';
+
+   policyList: PolicyDetailsFilter[] = [];
+
+   @ViewChild('f') form: any;
+  idxPos: number;
+  
+
+
+   constructor(private service: InsuranceAPIService) { }
 
   ngOnInit() {
-    this.serive.findAllPolicy().subscribe(data=>this.polictyList=data);
+
+    this.service.findAllPolicy().subscribe(data => this.policyList = data,err=>console.log(err));
+    console.log(this.policyList);
   }
 
-  submit(){
-    if(this.buttonText=='Add')
-    {
-      console.log('add');
-    this.serive.addPolicy(this.policyData).subscribe(resp=> {
-      this.polictyList.push(resp);
-    });
-    console.log(this.policyData);
-    this.form.reset();
-  }
-  else //uopdate
-  {
-    console.log('update');
-    this.serive.updatePolicy(this.policyData).subscribe(resp=> {
-   //   this.polictyList.splice(this.idxPos,1);
-   this.polictyList[this.idxPos]=resp;
-   this.form.reset();
-   this.buttonText='Add';
+   submit() {
 
-    });
-    console.log(this.policyData);
-  }
-  }
+     if(this.buttonText === 'Add'){
+     this.service.addPolicy(this.policyData).subscribe(resp => {
 
-  update(policy:PolicyDetailsFilter)
-  {
-    if(!this.toggleForm)
-    {
-     // this.toggleForm = true;
-     this.showForm();
+      this.policyList.push(resp);
+      this.form.reset();
+     });
+    } else {
+
+      this.service.updatePolicy(this.policyData).subscribe(resp => {
+
+        this.policyList[this.idxPos] = resp;
+        this.buttonText = 'Add';
+        this.form.reset();
+      });
     }
-    console.log("update"+policy);
-    this.idxPos = this.polictyList.indexOf(policy);
-    this.buttonText='Update';
-    this.policyData=policy;
 
+      console.log(this.policyData);
+   }
 
-  }
+   update(policy) {
 
-  remove(policy:PolicyDetailsFilter)
-  {
-    console.log(policy.id);
-    this.serive.deletePolicy(policy).subscribe(resp=> {
-      const idxPos = this.polictyList.indexOf(policy);
-      this.polictyList.splice(idxPos,1);
-    });
-    console.log("remove"+policy);
-  }
+    this.idxPos = this.policyList.indexOf(policy);
 
-  showForm()
-  {
-    this.toggleForm =! this.toggleForm;
-    this.showUp =! this.showUp;
-    this.showDown =! this.showDown;
-  }
+    this.buttonText = 'Update';
 
+    if(!this.toggleForm){
+
+      this.showForm();
+    }
+    this.policyData = policy;
+
+       console.log('update called');
+   }
+   showForm(){
+
+    this.toggleForm = !this.toggleForm;
+    this.showUp = !this.showUp;
+    this.showDown = !this.showDown;
+   }
+   remove(policy) {
+
+     const idxPos = this.policyList.indexOf(policy);
+
+     this.service.deletePolicy(policy).subscribe(resp => {
+
+            this.policyList.splice(idxPos, 1);
+     });
+     console.log('remove called');
+   }
 }

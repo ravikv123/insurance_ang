@@ -1,0 +1,13 @@
+<p>
+  search-branch works!
+</p>
+<label>City Name</label>
+<input [(ngModel)]='srchCity' (focus)='add()'  />
+<app-show-branch [cityName]='srchCity' (branches)='onChange($event)'></app-show-branch>
+
+<ol>
+  <li *ngFor='let eachBranch of cityList' >{{eachBranch}}</li>
+</ol>
+<div>
+<ng-template #locationInfo></ng-template>
+</div>
